@@ -61,15 +61,22 @@ function App() {
         <label htmlFor="email">Email:</label>
         <input
           id="email"
+          defaultValue="joe@schmoe.com"
           type="email"
           name="email"
           placeholder="joe@schmoe.com"
         />
-        <br />
 
         <label htmlFor="password">Password:</label>
-        <input id="password" type="password" name="password" />
-        <br />
+        <input
+          id="password"
+          defaultValue="password123"
+          type="password"
+          name="password"
+        />
+
+        <label htmlFor="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
 
         <button>Submit</button>
       </form>
