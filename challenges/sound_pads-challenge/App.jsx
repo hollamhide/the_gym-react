@@ -5,20 +5,25 @@ import Pad from "./Pad";
 export default function App() {
   const [pads, setPads] = React.useState(padsData);
 
-  /**
-   * Challenge: Create a toggle() function that logs
-   * "clicked!" to the console
-   *
-   * Pass that function down to each of the Pad components
-   * and set it up so when they get clicked, the function runs
-   */
-
-  function toggle() {
-    console.log("Clicked!");
+  function toggle(id) {
+    // map over the pads array, and if the current item has
+    // the same id as the one passed to this function, then
+    // flip its `on` value.
+    setPads((prevPads) =>
+      prevPads.map((item) => {
+        return item.id === id ? { ...item, on: !item.on } : item;
+      }),
+    );
   }
 
   const buttonElements = pads.map((pad) => (
-    <Pad key={pad.id} color={pad.color} on={pad.on} toggle={toggle} />
+    <Pad
+      key={pad.id}
+      toggle={toggle}
+      id={pad.id}
+      color={pad.color}
+      on={pad.on}
+    />
   ));
 
   return (
