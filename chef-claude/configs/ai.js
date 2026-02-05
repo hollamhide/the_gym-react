@@ -47,11 +47,15 @@ const hf = new HfInference(import.meta.env.VITE_HF_ACCESS_TOKEN);
 
 export async function getRecipeFromMistral(ingredientsArr) {
   const ingredientsString = ingredientsArr.join(", ");
+
   try {
     const response = await hf.chatCompletion({
-      model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      model: "Qwen/Qwen2.5-72B-Instruct", // Very capable model
       messages: [
-        { role: "system", content: SYSTEM_PROMPT },
+        {
+          role: "system",
+          content: "You are a helpful recipe assistant.",
+        },
         {
           role: "user",
           content: `I have ${ingredientsString}. Please give me a recipe you'd recommend I make!`,
@@ -59,8 +63,10 @@ export async function getRecipeFromMistral(ingredientsArr) {
       ],
       max_tokens: 1024,
     });
+
     return response.choices[0].message.content;
   } catch (err) {
-    console.error(err.message);
+    console.error("Error:", err);
+    throw err;
   }
 }
