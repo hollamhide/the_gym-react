@@ -14,7 +14,21 @@ export default function Main() {
   ]);
   const [recipe, setRecipe] = React.useState("");
   const recipeSection = React.useRef(null);
-  console.log(recipeSection);
+  // console.log(recipeSection);
+
+  /**
+   * Challenge:
+   * Add a new effect that calls `recipeSection.current.scrollIntoView()`
+   * only if recipe is not an empty string and recipeSection.current is not null.
+   * Think carefully about what value(s) you would want to include in
+   * the dependencies array.
+   */
+
+  React.useEffect(() => {
+    if (recipe !== "" && recipeSection.current !== null) {
+      recipeSection.current.scrollIntoView();
+    }
+  }, [recipe]);
 
   async function getRecipe() {
     const recipeMarkdown = await getRecipeFromMistral(ingredients);
